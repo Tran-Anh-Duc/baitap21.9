@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>quản lí danh sách</title>
+</head>
+<style>
+    td{
+        width: 100px;
+    }
+</style>
+<body>
+<input type="text" id="txt">
+<button onclick="create()">thêm</button>
+<table border="1" id="list"></table>
+<div id="edit-from"></div>
+
+<script>
+
+let listProduct = ['iphone', 'iphone', 'iphone', 'iphone', 'iphone']
+
+Display();
+
+function create() {
+let product = document.getElementById('txt').value;
+listProduct.push(product);
+console.log(listProduct)
+Display()
+}
+function Display() {
+let str = '<tr><td>Product Name</td><td></td><td>' + listProduct.length + ' products</td></tr>'
+for (let i = 0; i < listProduct.length; i++) {
+str += `<tr>`;
+    str += `<td>${listProduct[i]}</td>`;
+    str += `<td><button onclick="showEditForm(${i})">Edit</button><td>`;
+        str += `<td><button onclick="deleteProduct(${i})">Delete</button><td>`;
+        str += `</tr>`;
+}
+document.getElementById('list').innerHTML = str;
+}
+
+function showEditForm(index) {
+// alert(index) check xem  cái sự kiện function showEditForm(index) { ở vị trí index
+let str = `<input id="txtEdit"  value="${listProduct[index]}"><button onclick="save(${index})">save</button>`
+document.getElementById('edit-from').innerHTML = str;
+}
+function save(index) {
+let newProduct = document.getElementById('txtEdit').value;
+listProduct[index] = newProduct;
+Display();
+document.getElementById('edit-from').innerHTML = '';
+}
+function deleteProduct(index) {
+    listProduct.splice(index, 1)
+    Display();
+}
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -5,29 +5,35 @@
     <title>Title</title>
 </head>
 <body>
-<!--<input type="text" id="mot" value="">-->
-<!--<button onclick="footToMeter()">footToMeter</button>-->
-<!--<button onclick="meterToFoot()">meterToFoot</button>-->
-<!--<h2 id="hai"></h2>-->
-<!--<h2 id="ba"></h2>-->
+<input type="text" id="mot" value="">
+<button onclick="footToMeter()">footToMeter</button>
+<h2 id="numbera"></h2>
+<hr>
+<button onclick="meterToFoot()">meterToFoot</button>
+<input type="text" id="hai" value="">
+<h2 id="numberb"></h2>
+
 <script>
-    // let numberA = document.getElementById('mot').value
-    //
-    // document.write(footToMeter(numberA))
 
 
 
 
 
-    function footToMeter(foot) {
-        return 0.305 * foot
+
+    function footToMeter() {
+       let numberA = document.getElementById('mot').value;
+        let sumA = numberA * 0.305
+        document.getElementById('numbera').innerHTML = sumA;
+
     }
-    document.write(footToMeter(prompt()))
 
-    function meterToFoot(metter) {
-        return 3.279 * meter
+
+    function meterToFoot() {
+        let numberB = document.getElementById('hai').value;
+        let sumB = numberB * 3.279;
+        document.getElementById('numberb').innerHTML = sumB;
     }
-    document.write(meterToFoot(prompt()))
+
 
 
 </script>
